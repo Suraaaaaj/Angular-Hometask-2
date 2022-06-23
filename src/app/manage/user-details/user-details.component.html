@@ -1,0 +1,22 @@
+<div class="container details-card">
+    <strong>{{user.firstName + " " + user.lastName}}</strong>
+    <span [ngStyle]= "user.isDeleted? {'color': 'red'}: {'color': 'green'}">{{user.isDeleted ? "Deactive": "Active"}} </span>
+    <table>
+        <tr>
+            <td>Login Id</td>
+            <td>{{user.login}}</td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>{{user.firstName}}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{user.lastName}}</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </table>
+</div>

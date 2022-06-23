@@ -1,0 +1,8 @@
+<div class="container p-5" *ngIf="allowedUser" [ngStyle]="{'border':myBorder}">
+    <strong class="row">
+        {{curr.firstName + " " + curr.lastName }}
+    </strong>
+    <button class="btn btn-secondary float-end" (click)="changeStatusOrViewDetails()">
+        {{getUserStatus()}}
+    </button>
+</div>
