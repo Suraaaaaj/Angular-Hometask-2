@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';
 @Component({
   selector: 'app-user',
@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   currRoute: any;
   allowedUser = false;
   myBorder : any;
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.currRoute = this.router.url;
   }
   
@@ -29,7 +29,6 @@ export class UserComponent implements OnInit {
       if(this.curr.isDeleted == true) this.myBorder = '1px solid #cb4747';
       else this.myBorder = '1px solid #69c369';
     }
-    // console.log(this.router);
   }
 
   getUserStatus(){
@@ -50,11 +49,9 @@ export class UserComponent implements OnInit {
           this.router.navigate([currentUrl]);
       });
    }else{
-      this.router.navigate(['manage/'+ this.curr.id]);
-      let currentUrl = this.router.url.split('/')[1];
-      // console.log(currentUrl.split('/')[1]);
+    
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-          this.router.navigate([currentUrl + "/" + this.curr.id]);
+          this.router.navigate([this.router.url + 'manage/' + this.curr.id]);
       });
    }
   }

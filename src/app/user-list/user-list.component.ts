@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UsersService } from '../services/users.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -10,19 +9,11 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
 
-  users! : User[]; 
-  currRoute : String;
-  constructor(private userService: UsersService,private router: Router) {
-      this.currRoute = this.router.url;
-   }
+  users! : User[];
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
     this.users = this.userService.getUsers();
   }
-
-  // checkValidity(user: User){
-  //   console.log(user);
-  //   return true;
-  // }
 
 }

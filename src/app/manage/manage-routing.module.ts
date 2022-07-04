@@ -7,12 +7,14 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 const routes: Routes = [
     {
         path: '',
-        component: ManageComponent
-    },
-    {
-        path: ':id',
         component: ManageComponent,
-    }
+        children: [
+            {
+                path:':id',
+                component:UserDetailsComponent
+            }
+        ]
+    },
 ];
 
 @NgModule({

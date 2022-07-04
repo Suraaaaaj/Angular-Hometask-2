@@ -7,13 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage.component.css']
 })
 export class ManageComponent implements OnInit {
-  currRoute!: String;
-  routeLen!: any;
-  constructor(private router: Router) {
-    this.currRoute = this.router.url.split('/')[1];
-    this.routeLen = this.router.url.split('/').length;
-    // console.log(this.currRoute);
-   }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
